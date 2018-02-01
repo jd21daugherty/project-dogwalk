@@ -1,23 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import PedometerSensor from './app/components/pedometer-counter/pedometer-counter';
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <PedometerCounter />
-      </View>
-    );
+import RootNavigator from './root-navigator';
+export default class App extends React.Component { 
+  render (){
+    return <RootNavigator />
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
