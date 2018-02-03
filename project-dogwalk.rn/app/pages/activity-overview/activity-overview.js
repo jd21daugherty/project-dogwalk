@@ -1,14 +1,26 @@
-import Expo from "expo";
-import React from "react";
-import { Pedometer } from "expo";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
+import Expo from 'expo';
+import { Pedometer } from 'expo';
 
-export default class PedometerCounter extends React.Component {
+export default class ActivityOverview extends React.Component{
+  constructor(){
+    super();
+
+    this.startAWalk = this.startAWalk.bind(this);
+  }
+
   state = {
     isPedometerAvailable: "checking",
-    pastStepCount: 0,
-    currentStepCount: 0
+    pastStepCount: 0
   };
+
+  startAWalk(){
+    const {navigate} = this.props.navigation;
+
+    navigate("WalkScreen");
+  }
 
   componentDidMount() {
     this._subscribe();
@@ -19,12 +31,7 @@ export default class PedometerCounter extends React.Component {
   }
 
   _subscribe = () => {
-    this._subscription = Pedometer.watchStepCount(result => {
-      this.setState({
-        currentStepCount: result.steps
-      });
-    });
-
+   
     Pedometer.isAvailableAsync().then(
       result => {
         this.setState({
@@ -61,13 +68,16 @@ export default class PedometerCounter extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Button
+          raised
+          icon={{name: 'paw', type: 'font-awesome'}}
+          title='START A WALK'
+          onPress={() => this.startAWalk()}
+          />
+     
         <Text>
-          Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
+          My steps taken in the last 24 hours: {this.state.pastStepCount}
         </Text>
-        <Text>
-          Steps taken in the last 24 hours: {this.state.pastStepCount}
-        </Text>
-        <Text>Walk! And watch this go up: {this.state.currentStepCount}</Text>
       </View>
     );
   }
@@ -82,4 +92,4 @@ const styles = StyleSheet.create({
   }
 });
 
-Expo.registerRootComponent(PedometerSensor);
+Expo.registerRootComponent(ActivityOverview);

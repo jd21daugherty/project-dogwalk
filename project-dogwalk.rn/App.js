@@ -1,23 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TabBarIOS } from 'react-native';
+import RootNavigator from './root-navigator';
+import ActivityOverview from './app/pages/activity-overview/activity-overview';
+import WalkScreen from './app/pages/walk-screen/walk-screen';
 
-import PedometerSensor from './app/components/pedometer-counter/pedometer-counter';
+export default class App extends React.Component { 
+  state = {
+    selectedTab: 'ActivityOverview'
+  }
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <PedometerCounter />
-      </View>
-    );
+  render (){
+    return(
+      <RootNavigator />
+    ) 
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
