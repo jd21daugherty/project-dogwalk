@@ -74,9 +74,7 @@ export default class ActivityOverview extends React.Component{
           title='START A WALK'
           onPress={() => this.startAWalk()}
           />
-        <Text>
-          Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
-        </Text>
+     
         <Text>
           My steps taken in the last 24 hours: {this.state.pastStepCount}
         </Text>
