@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TabBarIOS } from 'react-native';
-import RootNavigator from './root-navigator';
-import ActivityOverview from './app/pages/activity-overview/activity-overview';
-import WalkScreen from './app/pages/walk-screen/walk-screen';
+import MainNavigator from './app/navigators/main-navigator';
+
 
 export default class App extends React.Component { 
   state = {
@@ -11,7 +10,7 @@ export default class App extends React.Component {
 
   render (){
     return(
-      <RootNavigator />
+      <MainNavigator />
     ) 
   }
 }
