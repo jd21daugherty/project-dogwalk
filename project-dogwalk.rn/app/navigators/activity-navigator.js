@@ -1,10 +1,10 @@
 import { StackNavigator } from 'react-navigation';
 
-import ActivityOverview from './app/pages/activity-overview/activity-overview';
-import WalkScreen from './app/pages/walk-screen/walk-screen';
+import ActivityOverview from '../pages/activity-overview/activity-overview.page';
+import WalkScreen from '../pages/activity-overview/pages/walk-screen/walk-screen.page';
 
 
-const RootNavigator = StackNavigator({
+const ActivityNavigator = StackNavigator({
     ActivityOverview: {
         screen: ActivityOverview,
         navigationOptions: {
@@ -19,4 +19,4 @@ const RootNavigator = StackNavigator({
       }
 });
 
-export default RootNavigator;
+export default ActivityNavigator;

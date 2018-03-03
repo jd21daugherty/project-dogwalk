@@ -73,10 +73,9 @@ export default class ActivityOverview extends React.Component{
           icon={{name: 'paw', type: 'font-awesome'}}
           title='START A WALK'
           onPress={() => this.startAWalk()}
-          />
-     
+          />    
         <Text>
-          My steps taken in the last 24 hours: {this.state.pastStepCount}
+          Daily Steps: {this.state.pastStepCount}
         </Text>
       </View>
     );
